@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Greetings name="akash"/>
-      <Counter/>
+      <Counter defaultValue = "5"/>
     </div>
   );
 }
