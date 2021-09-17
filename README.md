@@ -11,3 +11,7 @@
 
 3. Explain when to lift state up to a parent component.
     we need to lift the state up when a state is required by multiple different components. We move the state to a common ancestor of all the components that are using particular state.
+
+4. Explain why context is useful even though we can lift state to parent and update it from child
+    Context is hassel free as we do not have to manually pass the state as props down throgh the whole tree
+    Context helps in writing cleaner code

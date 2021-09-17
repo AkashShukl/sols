@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import SignupForm from "./SignupForm";
 import Counter from "./Counter"
-
+import { ToggleUserNameContext } from "../App";
 export default function Parent(props) {
   
   let defaultValue = props.counterStartVal;
@@ -56,9 +56,12 @@ export default function Parent(props) {
     }
   };
 
+  const toggleSwitch = useContext(ToggleUserNameContext);
   return (
     <div>
-
+    <button onClick={() => toggleSwitch.handleToggle()}>
+    hideUserName
+  </button><br/>
       <Counter count={count} incr ={incr} decr ={decr} />
       <hr/>
       <SignupForm
