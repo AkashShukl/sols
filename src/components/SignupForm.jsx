@@ -1,68 +1,40 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function SignupForm() {
-  const [name, setname] = useState("");
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
-  const [confirmPassword, setconfirmPassword] = useState("");
-
-  const reset = () => {
-    setname("");
-    setpassword("");
-    setconfirmPassword("");
-    setemail("");
-  };
-
-  const handleNameChange = (e) => {
-    setname(e.target.value);
-  };
-
-  const handleEmailChange = (e) => {
-    setemail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setpassword(e.target.value);
-  };
-  const handleConfirmPasswordChange = (e) => {
-    setconfirmPassword(e.target.value);
-  };
-
-  const handleSubmit = () => {
-    if (!(name && email && password && confirmPassword)) {
-      alert("All Fields are manadatory ");
-    } else if (password !== confirmPassword) {
-      alert("Passwords do not match ");
-    } else if (!email.match(/.*@.*\..*/)) {
-      alert(" Invalid Email");
-    } else {
-      reset();
-      alert("Submitted");
-    }
-  };
-
+export default function SignupForm(props) {
+  
   return (
     <div>
       <label>Name</label>
-      <input type="text" value={name} onChange={handleNameChange}></input><br/>
+      <input
+        type="text"
+        value={props.name}
+        onChange={(e)=>props.handleNameChange(e)}
+      ></input>
+      <br />
       <label>Email</label>
-      <input type="text" value={email} onChange={handleEmailChange}></input><br/>
+      <input
+        type="text"
+        value={props.email}
+        onChange={(e)=>props.handleEmailChange(e)}
+      ></input>
+      <br />
       <label>Password</label>
       <input
         type="password"
-        value={password}
-        onChange={handlePasswordChange}
-      ></input><br/>
+        value={props.password}
+        onChange={(e)=>props.handlePasswordChange(e)}
+      ></input>
+      <br />
       <label>Confirm Password</label>
       <input
         type="password"
-        value={confirmPassword}
-        onChange={handleConfirmPasswordChange}
-      ></input><br/>
-      <button type="submit" onClick={handleSubmit}>
+        value={props.confirmPassword}
+        onChange={(e)=>props.handleConfirmPasswordChange(e)}
+      ></input>
+      <br />
+      <button type="submit" onClick={()=>props.handleSubmit()}>
         Submit
       </button>
     </div>
   );
 }
-

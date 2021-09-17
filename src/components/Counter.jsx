@@ -1,23 +1,12 @@
-import React,{useState}from 'react'
+import React from 'react'
 
 export default function Counter(props) {
 
-    let defaultValue  = props.defaultValue ? Number(props.defaultValue) : 0
-    const [count, setCount] = useState(defaultValue)
-    
-    const incr = () => {
-        setCount(count+1)
-    }
-
-    const decr = () => {
-        setCount(count-1)
-    }
-    
     return (
         <div>
-            <button onClick= {incr }> {" + "} </button> 
-            {" "}  {count} {" "}
-            <button onClick= {decr }> {" - "} </button> 
+            <button onClick= {()=>props.incr() }> {" + "} </button> 
+            {" "}  {props.count} {" "}
+            <button onClick= {()=>props.decr() }> {" - "} </button> 
         </div>
     )
 }
