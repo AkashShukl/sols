@@ -1,31 +1,31 @@
 import React, { useState } from "react";
 
 export default function SignupForm() {
-  const [name, setname] = useState("");
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
-  const [confirmPassword, setconfirmPassword] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const reset = () => {
-    setname("");
-    setpassword("");
-    setconfirmPassword("");
-    setemail("");
+    setName("");
+    setPassword("");
+    setConfirmPassword("");
+    setEmail("");
   };
 
   const handleNameChange = (e) => {
-    setname(e.target.value);
+    setName(e.target.value);
   };
 
   const handleEmailChange = (e) => {
-    setemail(e.target.value);
+    setEmail(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
-    setpassword(e.target.value);
+    setPassword(e.target.value);
   };
   const handleConfirmPasswordChange = (e) => {
-    setconfirmPassword(e.target.value);
+    setConfirmPassword(e.target.value);
   };
 
   const handleSubmit = () => {
