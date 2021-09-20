@@ -29,16 +29,8 @@ export default function SignupForm() {
   };
 
   const handleSubmit = () => {
-    if (!(name && email && password && confirmPassword)) {
-      alert("All Fields are manadatory ");
-    } else if (password !== confirmPassword) {
-      alert("Passwords do not match ");
-    } else if (!email.match(/.*@.*\..*/)) {
-      alert(" Invalid Email");
-    } else {
-      reset();
-      alert("Submitted");
-    }
+    reset();
+    alert("Submitted");
   };
 
   return (
