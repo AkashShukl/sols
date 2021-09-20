@@ -44,25 +44,42 @@ export default function SignupForm() {
   return (
     <div>
       <label>Name</label>
-      <input type="text" value={name} onChange={handleNameChange}></input><br/>
+      <input type="text" value={name} onChange={handleNameChange}></input>
+      {name ? " " : <lable style={{ color: "red" }}> *required </lable>}
+      <br />
       <label>Email</label>
-      <input type="text" value={email} onChange={handleEmailChange}></input><br/>
+      <input type="text" value={email} onChange={handleEmailChange}></input>
+      {email ? " " : <lable style={{ color: "red" }}> *required </lable>}
+      <br />
       <label>Password</label>
       <input
         type="password"
         value={password}
         onChange={handlePasswordChange}
-      ></input><br/>
+      ></input>{" "}
+      {password ? " " : <lable style={{ color: "red" }}> *required </lable>}
+      <br />
       <label>Confirm Password</label>
       <input
         type="password"
         value={confirmPassword}
         onChange={handleConfirmPasswordChange}
-      ></input><br/>
+      ></input>{" "}
+      {confirmPassword ? (
+        " "
+      ) : (
+        <lable style={{ color: "red" }}> *required </lable>
+      )}
+      <br />
+      {password === confirmPassword ? (
+        " "
+      ) : (
+        <lable style={{ color: "red" }}> Passwords do not match </lable>
+      )}
+      <br />
       <button type="submit" onClick={handleSubmit}>
         Submit
       </button>
     </div>
   );
 }
-

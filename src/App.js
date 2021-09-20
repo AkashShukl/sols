@@ -11,7 +11,7 @@ function App() {
       <Greetings name="akash" />
       <hr />
       <h1> Exercise 2</h1> <br />
-      <Counter defaultValue="5" />
+      <Counter defaultValue={2} />
       <hr />
       <h1> Exercise 3</h1> <br />
       <ListView start="2" end="12" />
