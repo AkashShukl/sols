@@ -1,30 +1,41 @@
+import React, { useState } from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
 import "./App.css";
-import React from "react";
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Counter from "./components/Counter";
 import Login from "./components/Login";
+import ApiCallings from "./components/ApiCallings";
 
 export const ToggleUserNameContext = React.createContext({});
-
+const queryClient = new QueryClient();
 function App() {
   return (
     <div className="app">
-      <Router>
-        <Switch>
-          <Route path="/home/:username?">
-            <Home />
-          </Route>
+      
+        <Router>
+          <Switch>
+            <Route path="/home/:username?">
+              <Home />
+            </Route>
 
-          <Route path="/counter">
-            <Counter defaultValue={5} />
-          </Route>
+            <Route path="/counter">
+              <Counter defaultValue={5} />
+            </Route>
 
-          <Route path="/login">
-            <Login />
-          </Route>
-        </Switch>
-      </Router>
+            <Route path="/login">
+              <Login />
+            </Route>
+
+            <Route path="/apicalling">
+            <QueryClientProvider client={queryClient}>
+              <ApiCallings />
+              </QueryClientProvider>
+            </Route>
+          </Switch>
+        </Router>
+      
     </div>
   );
 }
