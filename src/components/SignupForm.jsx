@@ -1,8 +1,14 @@
 import React, { useContext } from "react";
 import { ToggleUserNameContext } from "../App";
+import { useSelector,useDispatch } from "react-redux";
+import {updateUser} from "../redux/counterSlice"
 
 export default function SignupForm(props) {
   const toggleSwitch = useContext(ToggleUserNameContext);
+  
+  const { userInfo }= useSelector(state => state.formreducer)
+
+  const dispatch = useDispatch()
 
   return (
     <div>
@@ -36,7 +42,7 @@ export default function SignupForm(props) {
         onChange={(e) => props.handleConfirmPasswordChange(e)}
       ></input>
       <br />
-      <button type="submit" onClick={() => props.handleSubmit()}>
+      <button type="submit" onClick={() => dispatch(updateUser({userInfo:{"name":props.name,"email":props.email}}))}>
         Submit
       </button>
     </div>

@@ -6,6 +6,8 @@ import Home from "./components/Home";
 import Counter from "./components/Counter";
 import Login from "./components/Login";
 import ApiCallings from "./components/ApiCallings";
+import SignupForm from "./components/SignupForm";
+import Parent from "./components/Parent";
 
 export const ToggleUserNameContext = React.createContext({});
 const queryClient = new QueryClient();
@@ -17,29 +19,27 @@ function App() {
 
   return (
     <div className="app">
-      
-        <Router>
-          <Switch>
-            <Route path="/home/:username?">
-              <Home />
-            </Route>
+      <Router>
+        <Switch>
+          <Route path="/home/:username?">
+            <Home />
+          </Route>
 
-            <Route path="/counter">
-              <Counter defaultValue={5} />
-            </Route>
+          <Route path="/counter">
+            <Counter defaultValue={5} />
+          </Route>
 
-            <Route path="/login">
-              <Login />
-            </Route>
+          <Route path="/login">
+            <Parent />
+          </Route>
 
-            <Route path="/apicalling">
+          <Route path="/apicalling">
             <QueryClientProvider client={queryClient}>
               <ApiCallings />
-              </QueryClientProvider>
-            </Route>
-          </Switch>
-        </Router>
-      
+            </QueryClientProvider>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
