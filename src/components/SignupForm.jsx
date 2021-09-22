@@ -6,14 +6,20 @@ export default function SignupForm(props) {
   return (
     <div>
       <div>
-        <label hidden={toggleSwitch.toggleSwitch}>Name</label>
-        <input
-          hidden={toggleSwitch.toggleSwitch}
-          type="text"
-          value={props.name}
-          onChange={(e) => props.handleNameChange(e)}
-        ></input>
-        {props.name ? " " : <label hidden={toggleSwitch.toggleSwitch} style={{ color: "red" }}> *required </label>}
+        {!toggleSwitch.toggleSwitch ? <label>Name</label> : null}
+        {!toggleSwitch.toggleSwitch ?
+          <input
+            type="text"
+            value={props.name}
+            onChange={(e) => props.handleNameChange(e)}
+          ></input>
+          : null
+        }
+        { toggleSwitch.toggleSwitch ? (
+          " "
+        ) : ( props.name ? null :
+          <label style={{ color: "red" }}> *required</label>
+        )}
         <br />
         <label>Email</label>
         <input
