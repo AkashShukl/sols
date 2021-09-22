@@ -1,18 +1,12 @@
-import React,{useState}from 'react'
+import React from 'react'
 
 export default function Counter(props) {
 
-    const [count, setCount] = useState(props.defaultValue)
-
-    React.useEffect(() => {
-       setCount(props.defaultValue)
-    }, [props.defaultValue])
-    
     return (
         <div>
-            <button onClick= {()=>setCount(prevCount => prevCount+1)}> {" + "} </button> 
-            {" "}  {count} {" "}
-            <button onClick= {()=>setCount(prevCount => prevCount-1)}> {" - "} </button> 
+            <button onClick= {()=>props.incr() }> {" + "} </button> 
+            {" "}  {props.count} {" "}
+            <button onClick= {()=>props.decr() }> {" - "} </button> 
         </div>
     )
 }
