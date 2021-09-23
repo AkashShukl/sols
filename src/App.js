@@ -8,10 +8,6 @@ import Login from "./components/Login";
 export const ToggleUserNameContext = React.createContext({});
 
 function App() {
-  // const [toggleSwitch, settoggleSwitch] = useState(false);
-  // const handleToggle = () => {
-  //   settoggleSwitch(!toggleSwitch);
-  // };
 
   return (
     <div className="app">
