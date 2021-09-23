@@ -5,11 +5,12 @@ import { useSelector } from "react-redux";
 export default function Home() {
   let params = useParams();
   const { userInfo }= useSelector(state => state.formreducer)
-  console.log("home",userInfo)
+  
   return (
     <div>
       <h3>
         < Greetings name = {params.username ? params.username : "User" } />
+        {userInfo.name} {userInfo.email} {userInfo.password} {userInfo.confirmPassword}
       </h3>
     </div>
   );

@@ -1,18 +1,19 @@
 import React, { useContext } from "react";
 import { ToggleUserNameContext } from "../App";
-import { useSelector,useDispatch } from "react-redux";
-import {updateUser} from "../redux/counterSlice"
+import { useSelector, useDispatch } from "react-redux";
+import { updateUser } from "../redux/counterSlice";
+import Home from "./Home";
+import { Link } from "react-router-dom";
 
 export default function SignupForm(props) {
   const toggleSwitch = useContext(ToggleUserNameContext);
-  
-  const { userInfo }= useSelector(state => state.formreducer)
 
-  const dispatch = useDispatch()
+  const { userInfo } = useSelector((state) => state.formreducer);
+
+  const dispatch = useDispatch();
 
   return (
     <div>
-      
       <label hidden={toggleSwitch.toggleSwitch}>Name</label>
       <input
         hidden={toggleSwitch.toggleSwitch}
@@ -42,9 +43,25 @@ export default function SignupForm(props) {
         onChange={(e) => props.handleConfirmPasswordChange(e)}
       ></input>
       <br />
-      <button type="submit" onClick={() => dispatch(updateUser({userInfo:{"name":props.name,"email":props.email}}))}>
+      <button
+        type="submit"
+        onClick={() =>
+          dispatch(
+            updateUser({
+              userInfo: {
+                name: props.name,
+                email: props.email,
+                password: props.password,
+                confirmPassword: props.confirmPassword
+              },
+            })
+          )
+        }
+      >
         Submit
       </button>
+      <Link to="/home">home</Link>
+      {userInfo.email} {userInfo.name}
     </div>
   );
 }

@@ -6,13 +6,8 @@ export const formSlice = createSlice({
     userInfo : {}
   },
   reducers: {
-
     updateUser: (state, action) => {
-      console.log( state,action)
       state.userInfo = action.payload.userInfo
-      console.log( "after")
-      console.log( state,action)
-      console.log(state.userInfo)
     }
   }
 })
