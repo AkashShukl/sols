@@ -50,7 +50,7 @@ export default function ApiCallings() {
             Data added! <ul>{resolveObject(mutation.data)}</ul>
           </div>
         ) : null}
-        {console.log(mutation)}
+       
       </div>
 
       <div>

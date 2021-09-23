@@ -28,7 +28,6 @@ export default function Parent(props) {
   };
 
   const handleNameChange = (e) => {
-    console.log("Called");
     setname(e.target.value);
   };
 
