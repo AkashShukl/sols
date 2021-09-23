@@ -12,7 +12,7 @@ export const formSlice = createSlice({
     onchange: (state, action) => {
       const payload = action.payload;
       const field  = payload.field
-      state.name = payload.data
+      state[field] = payload.data
     },
   
   },
