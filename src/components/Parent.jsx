@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import SignupForm from "./SignupForm";
-import Counter from "./Counter"
-
+import Counter from "./Counter";
+import { ToggleUserNameContext } from "../App";
 export default function Parent(props) {
-  
   let defaultValue = props.counterStartVal;
 
   const [count, setCount] = useState(defaultValue);
@@ -43,23 +42,18 @@ export default function Parent(props) {
   };
 
   const handleSubmit = () => {
-    if (!(name && email && password && confirmPassword)) {
-      alert("All Fields are manadatory ");
-    } else if (password !== confirmPassword) {
-      alert("Passwords do not match ");
-    } else if (!email.match(/.*@.*\..*/)) {
-      alert(" Invalid Email");
-    } else {
-      reset();
-      alert("Submitted");
-    }
+    reset();
+    alert("Submitted");
   };
+
+  const toggleSwitch = React.useContext(ToggleUserNameContext);
 
   return (
     <div>
-
-      <Counter count={count} incr ={incr} decr ={decr} />
-      <hr/>
+      <button onClick={() => toggleSwitch.handleToggle()}>hideUserName</button>
+      <br />
+      <Counter count={count} incr={incr} decr={decr} />
+      <hr />
       <SignupForm
         name={name}
         email={email}
