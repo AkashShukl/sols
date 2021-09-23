@@ -29,39 +29,64 @@ export default function Login() {
   };
 
   const handleSubmit = () => {
-    if (!(name && email && password && confirmPassword)) {
-      alert("All Fields are manadatory ");
-    } else if (password !== confirmPassword) {
-      alert("Passwords do not match ");
-    } else if (!email.match(/.*@.*\..*/)) {
-      alert(" Invalid Email");
-    } else {
+
       reset();
       alert("Submitted");
-    }
   };
 
   return (
     <div>
       <label>Name</label>
-      <input type="text" value={name} onChange={handleNameChange}></input><br/>
+      <input type="text" value={name} onChange={handleNameChange}></input>
+      {name ? null :
+        <label style={{ color: "red" }}> *required</label>
+      }
+      <br/>
       <label>Email</label>
-      <input type="text" value={email} onChange={handleEmailChange}></input><br/>
-      <label>Password</label>
-      <input
-        type="password"
-        value={password}
-        onChange={handlePasswordChange}
-      ></input><br/>
-      <label>Confirm Password</label>
-      <input
-        type="password"
-        value={confirmPassword}
-        onChange={handleConfirmPasswordChange}
-      ></input><br/>
-      <button type="submit" onClick={handleSubmit}>
-        Submit
-      </button>
-    </div>
+        <input
+          type="text"
+          value={email}
+          onChange={(e) => handleEmailChange(e)}
+        ></input>
+        {email.match(/.*@.*\..*/) ? (
+          " "
+        ) : (
+          <label style={{ color: "red" }}> *Invalid Email </label>
+        )}
+        <br />
+        <label>Password</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => handlePasswordChange(e)}
+        ></input>{" "}
+        {password ? (
+          " "
+        ) : (
+          <label style={{ color: "red" }}> *required </label>
+        )}
+        <br />
+        <label>Confirm Password</label>
+        <input
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => handleConfirmPasswordChange(e)}
+        ></input>{" "}
+        {confirmPassword ? (
+          " "
+        ) : (
+          <label style={{ color: "red" }}> *required </label>
+        )}
+        <br />
+        {password === confirmPassword ? (
+          " "
+        ) : (
+          <label style={{ color: "red" }}> Passwords do not match </label>
+        )}
+        <br />
+        <button type="submit" onClick={() => handleSubmit()}>
+          Submit
+        </button>
+      </div>
   );
 }
