@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import Counter from "./components/Counter";
 import Login from "./components/Login";
 import ApiCallings from "./components/ApiCallings";
+import Parent from "./components/Parent";
 
 export const ToggleUserNameContext = React.createContext({});
 const queryClient = new QueryClient();
@@ -25,7 +26,7 @@ function App() {
             </Route>
 
             <Route path="/login">
-              <Login />
+              <Parent />
             </Route>
 
             <Route path="/apicalling">

@@ -1,24 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
 export const formSlice = createSlice({
   name: 'form',
   initialState: {
-    name: "",
-    email: "checkout",
-    password: "",
-    confirmPassword: "",
+    userInfo : {}
   },
   reducers: {
-    onchange: (state, action) => {
-      const payload = action.payload;
-      const field  = payload.field
-      state.name = payload.data
-    },
-  
-  },
-});
+    updateUser: (state, action) => {
+      state.userInfo = action.payload.userInfo
+    }
+  }
+})
 
-export const { onchange } = formSlice.actions;
+export const {  updateUser } = formSlice.actions
 
-export default formSlice.reducer;
-//
+export default formSlice.reducer
